@@ -1,0 +1,155 @@
+<html>
+<head><title>application form</title></head>
+<style>
+Body{
+background-image:url('flowers.jpg');
+background-size:cover;
+background-repeat:no-repeat;
+
+}
+h1   {color: lavender;
+background-color:black;
+text-align: center;
+font-family:verdena;
+}
+p{color: rosybrown;
+background-color:black;
+font-size: 20px;
+text-align: center;
+}
+body{color:white;}
+button{color:brown;
+background:khaki};
+
+</style>
+<h1>JOB APPLICATION <BR><BR></h1>
+<p>
+DATA ANALYTICS  INFOTECH</p>
+<img src="D:\Users\Desktop\d\logo.png" height=50px width=100px align="right"></img>
+<form method="POST" name="sample">
+NAME:<input type="text" autofocus placeholder="ENTER YOUR NAME" name="Name"><br><br>
+GENDER:<br>
+<input type="radio" name="Gender" >FEMALE<br>
+<input type="radio" name="Gender">MALE<br><br>
+QUALIFICATION:
+<select>
+<option value="SELECT" name="Qualification">SELECT</option>
+<option value="BCA">BCA</option>
+<option value="'MCA">MCA</option>
+<option value="BTECH>BTECH</option>
+<option value="MTECH">MTECH</option>
+<option value="BSC">BSC</option>
+<option value="MSC">MSC</option>
+</select><br><br>
+DATE OF BIRTH:<br><br>
+<input type="date" name="DOB"><BR><BR>
+EXPERIENCE:<br><br>
+<input type="checkbox" name="Experience">FRESHER<br><br>
+<input type="checkbox">1-3 YEAR<br><br>
+<input type="checkbox">3-5 YEAR <br><br>
+<label for="phone" name="Phone">CONTACT</label><br>
+<input type="tel" ><BR><BR>
+E-MAIL:<BR>
+<input type="email" placeholder="ENTER YOUR EMAIL" name="Email"><br><br>
+UPLOAD YOUR LINKEDIN URL <br><br>
+<input type="url" placeholder="ONLY IN URL FORM" name="url"><br><br>
+ <input type="button" name="submit" value="SUBMIT" onclick="addStudent();" class="btn btn-success"><hr>
+<table id="tbl" class="table" border="1">
+                <thead>
+                <th>Name</th> 
+                <th>Gender</th>
+                <th>Qualification </th>
+<th>DOB</th>
+                <th>Experience</th>
+<th>Email</th>
+<th>url</th>
+<th>submit</th>
+               
+                </thead>
+                
+                 <tbody>
+                     
+                 </tbody>
+             </table>
+
+
+
+</form>
+
+ <script type="text/javascript">
+       
+  
+
+// Array to store student data
+var students = [];
+
+// Function to add a new student
+function addStudent() {
+    var rollno = document.sample.rollno.value;
+    var name = document.sample.name.value;
+    var gender = document.sample.gender.value;
+    var qualification = document.sample.qualification.value;
+    var dob = document.sample.dob.value;
+    var experience = document.sample.experience.value;
+    var email = document.sample.email.value;
+    var url = document.sample.url.value;
+
+    // Create a new student object
+    var student = {
+        rollno: rollno,
+        name: name,
+        gender: gender,
+        qualification: qualification,
+        dob: dob,
+        experience: experience,
+        email: email,
+        url: url
+    };
+
+    // Add the student object to the array
+    students.push(student);
+
+    // Call function to update the table
+    updateTable();
+}
+
+// Function to update the table with student data
+function updateTable() {
+    var table = document.getElementById("tbl");
+
+    // Clear the table body
+    table.innerHTML = "";
+
+    // Add table headers
+    var headerRow = table.insertRow();
+    headerRow.innerHTML = "<th>Roll No</th><th>Name</th><th>Gender</th><th>Qualification</th><th>DOB</th><th>Experience</th><th>Email</th><th>URL</th>";
+
+    // Iterate over the student array and populate the table
+    students.forEach(function(student) {
+        var row = table.insertRow();
+        row.insertCell().textContent = student.rollno;
+        row.insertCell().textContent = student.name;
+        row.insertCell().textContent = student.gender;
+        row.insertCell().textContent = student.qualification;
+        row.insertCell().textContent = student.dob;
+        row.insertCell().textContent = student.experience;
+        row.insertCell().textContent = student.email;
+        row.insertCell().textContent = student.url;
+    });
+}
+
+
+
+    
+    </script>
+</div>
+    </body>
+</html>
+
+
+
+
+
+
+</body>
+</html>
